@@ -3,11 +3,10 @@ const mongoose = require ('mongoose');
 const app = express();
 require('dotenv/config');
 
+//Import Routes 
+const postsRoute = require('./routes/posts');
 
-//Middlewares
-app.use('/posts' ,() => {
-    console.log('Midddlewares mesage');
-})
+app.use('/posts', postsRoute);
 
 //Routes 
 app.get('/', (req, res) =>  {
@@ -20,6 +19,6 @@ mongoose.connect(
     () => console.log('connected to ')
 );
 
-
+ 
 app.listen(3000); // listening to the server 
 
